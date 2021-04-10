@@ -12,9 +12,13 @@ const Home = () => {
         <div className="container">
             <div className="row">
                 { blogs.map((blog) => (
-                    <div className="col-md-12" key={blog.id}>
-                        <h2 className="text-left">{blog.title}</h2>
-                        <p className="text-left">{blog.author}</p>
+                    <div className="col-md-7" key={blog.id}>
+                        <div className="card m-2">
+                            <div className="card-body">
+                                <h4 className="text-left font-weight-bold text-warning">{blog.title}</h4>
+                                <p className="text-left">{blog.author}</p>
+                            </div>
+                        </div>
                     </div>
                 )) }
             </div>
