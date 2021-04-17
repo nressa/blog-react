@@ -9,11 +9,24 @@ const Home = () => {
         { title: 'Github Profile', body: 'Updating github profile using awesome stats.', author: 'yoshi', id:4 }
     ]);
 
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter((blog) => blog.id !== id)
+        setBlog(newBlogs)
+    }
+
     return ( 
         <div className="container mt-5">
-            <BlogList blogs={ blogs } title="All Blog" ></BlogList>
-            <BlogList blogs={ blogs.filter((blog) => blog.author === 'mario') } title="Mario's Blog" ></BlogList>
-            <BlogList blogs={ blogs.filter((blog) => blog.author === 'yoshi') } title="Yoshi's Blog" ></BlogList>
+            <BlogList blogs={ blogs } 
+                        title="All Blog"
+                        handleDelete={handleDelete} ></BlogList>
+
+            <BlogList blogs={ blogs.filter((blog) => blog.author === 'mario') } 
+                        title="Mario's Blog"
+                        handleDelete={handleDelete} ></BlogList>
+
+            <BlogList blogs={ blogs.filter((blog) => blog.author === 'yoshi') } 
+                        title="Yoshi's Blog"
+                        handleDelete={handleDelete} ></BlogList>
         </div>
      );
 }
